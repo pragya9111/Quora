@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Quora</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(210, 210, 252);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: montserrat;
+            color: #3a3a3a;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <h3>Enter your new password : - </h3>
+    <form action="/resetpswrd/<%=user._id%>" method="post">
+        <label for="one">Set Password :- </label>
+        <input type="text" name="password" id="one"><br><br>
+        <label for="two">Confirm Password :- </label>
+        <input type="text" name = "confirmpswrd" id="two"><br><br>
+        <input type="submit" >
+    </form> 
+        
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Quora</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+
+</head>
+
+<body>
+    <div id="main2">
+        
+        <div id="nav">
+            <h3 style="font-weight: 900;color: #3a3a3a;text-decoration: underline;text-decoration-color: #d30f08;">Hey <%=q.name%> 😀</h3>
+            <div id="logo">
+                <h1>Quora</h1>
+            </div>
+            <div id="icons">
+                <a href="#"><i class="ri-home-7-fill"></i></a>
+                <a href="#"><i class="ri-list-check-2"></i></a>
+                <a href="#"><i class="ri-edit-box-line"></i></a>
+                <a href="#"><i class="ri-notification-3-line"></i></a>
+            </div>
+            <div id="search">
+                <i class="ri-search-line"></i>
+                <input type="search" value=" Search Quora">
+            </div>
+            <div id="btns">
+                <a href="#"><button id="one">Add Question</button></a>
+                <a href="/showall"><button class="fd">Show All Feeds <i class="ri-arrow-right-s-line"></i></button> </a>
+            </div>
+        </div>
+
+        <div id="section">
+        <a href="/logout"><button id="logout">Logout</button></a>
+
+            <%if(q.question.length>0){%>
+                <div id="allposts">
+            <%q.question.forEach(function(elem){%>
+        
+                    <div id="cards">
+                        <div class="card">
+                            <div class="top">
+                                <div class="pic">
+                                    <img src="../images/avatar.png" alt="">
+                                </div>
+                                <div class="creator">
+                                    <h3><%=q.name%></h3>
+                                    <h5><%=elem.date%></h5>
+                                </div>
+                            </div>
+                            <div class="mid1">
+                                <h5><%=elem.question%></h5>
+                            </div>
+                            <div class="mid2">
+                                <img src='./images/uploads/<%=elem.image%>' alt="">
+                            </div>
+                            <div class="btm">
+                                <a href="/like/<%=elem._id%>" style="display: flex;"><i class="ri-thumb-up-line"></i> <p> <%=elem.likes.length%></p> </a> 
+                                <a href="/dislike/<%=elem._id%>" style="display: flex;"><i class="ri-thumb-down-line"></i> <p> <%=elem.dislikes.length%></p></a> 
+                                <a href="/delete/<%=elem._id%>"><i class="ri-delete-bin-6-line"></i></a>
+                            </div>
+                            <div class="btm2">
+                                
+                            </div>
+
+                        </div>
+                    </div>
+        <%})%>
+                </div>
+            <%}else{%>
+                <div style="width: 15vw;height: 40vh;display: flex;align-items: center;justify-content: center;">
+                    <h4 style="color: whitesmoke;margin: 40px;font-size: 20px;">No question here</h4>
+
+                </div>
+            <%}%>
+
+            <div id="createques">
+                <h3>Ask question here...</h3><br>
+                <form action="/createquestion" method="post" enctype="multipart/form-data">
+                    <input type="text" name="question" id="qs" placeholder="Type question..." autocomplete="false" ><br><br><br>
+                    <input type="file" name="image"><br><br><br>
+                    <input type="submit" class="btn-grad1">
+                </form>
+            </div>
+        </div>
+    
+    </div>
+    
+    <script src="../javascripts/script.js"></script>
+</body>
+</html>

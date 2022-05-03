@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Quora</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+
+</head>
+
+<body>
+    <div id="main2">
+
+        <div id="nav">
+            <h3 style="font-weight: 900;color: #3a3a3a;text-decoration: underline;text-decoration-color: #d30f08;">All Feeds</h3>
+            <div id="logo">
+                <h1>Quora</h1>
+            </div>
+            <div id="icons">
+                <a href="#"><i class="ri-home-7-fill"></i></a>
+                <a href="#"><i class="ri-list-check-2"></i></a>
+                <a href="#"><i class="ri-edit-box-line"></i></a>
+                <a href="#"><i class="ri-notification-3-line"></i></a>
+            </div>
+            <div id="search">
+                <i class="ri-search-line"></i>
+                <input type="search" value=" Search Quora">
+            </div>
+            <div id="btns">
+                <a href="/profile"><button class="fd"> Back<i class="ri-arrow-right-line"></i></button></a>
+
+            </div>
+        </div>
+
+        <div id="section">
+        <a href="/logout"><button id="logout">Logout</button></a>
+
+            <div id="allposts">
+                <%alldata.forEach(function(elem){%>
+    
+                <div id="cards">
+                    <div class="card">
+                        <div class="top">
+                            <div class="pic">
+                                <img src="../images/avatar.png" alt="">
+                            </div>
+                            <div class="creator">
+                                <h3><%=elem.username.name%></h3>
+                                <h5><%=elem.date%></h5>
+                            </div>
+                        </div>
+                        <div class="mid1">
+                            <h5><%=elem.question%></h5>
+                        </div>
+                        <div class="mid2">
+                            <img src='./images/uploads/<%=elem.image%>' alt="">
+                        </div>
+                        <div class="btm">
+                        <a href="/like/<%=elem._id%>" style="display: flex;"><i class="ri-thumb-up-line"></i><p><%=elem.likes.length%></p></a> 
+                        <a href="/dislike/<%=elem._id%>" style="display: flex;"><i class="ri-thumb-down-line"></i><p><%=elem.dislikes.length%></p></a>
+                        <a href="#" id="chaticon"><i class="ri-chat-3-line"></i></a>
+                            <form action="/answer/<%=elem._id%>" method="post" id="ans" style="display:none;">
+                                <textarea name="answer" id="" cols="25" rows="2" style="background-color: rgb(239, 248, 251);border-radius: .5vmin;border: 1px solid grey; box-shadow: 1px 1px 2px grey inset;"></textarea>
+                                <input type="submit" value=  "Answer" style="padding: .5vmax;background-color: rgb(134, 217, 245);border-radius: .7vmin;border: none; margin-left:.5vmax;box-shadow: 2px 2px 4px rgb(93, 173, 200);">
+                            </form>
+                        </div>
+    
+                        <div class="btm2">
+                            <%elem.answer.forEach(function(a){%>
+                                <div style="display:flex;">
+                                    <h4 style="color: black;"><%=a.username%> - </h4><p style="font-size: 17px;font-weight: 600;"> <%=a.answer%></p>                                                       
+                                </div>
+                            <% })%>
+                        </div>
+                    
+                    </div>
+                </div>
+                <%})%>
+            </div>
+        </div>
+        
+    </div>
+
+    
+    <script src="../javascripts/script.js"></script>
+    <script>
+        document.querySelector("#chaticon").addEventListener("click", function(){
+            document.querySelector("#ans").style.display = "flex"
+        })
+    </script>
+
+</body>
+</html>

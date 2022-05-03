@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Quora</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+   
+   <div id="main">
+      <div id="container1">
+         <div id="head">
+            <h1>Quora</h1>
+         </div>
+         <h2 id="hd">Register</h2>
+
+         <div id="register">
+            <form action="/register" method="POST">
+               <input type="text" name="name" placeholder="Enter name" class="input" autocomplete="false" ><br><br>
+               <input type="text" name="username" placeholder="Enter username" class="input" autocomplete="false" ><br><br>
+               <input type="number" name="contact" placeholder="Enter mobile number" class="input" autocomplete="false" ><br><br>
+               <input type="radio" name="gender" value="male" style="margin-left: 3vmin;">Female
+               <input type="radio" name="gender" value="female" style="margin-left: 4vmin;">Male
+               <input type="radio" name="gender" value="other" style="margin-left: 4vmin;">Other <br><br>
+               <input type="text" name="email" placeholder="Enter email address" class="input" autocomplete="false" ><br><br>
+               <input type="password" name="password" placeholder="Enter password" class="input" autocomplete="false" ><br><br>
+               <input type="submit" id="submit" class="btn-grad1" value="REGISTER">
+            </form>
+         </div>
+
+         <div id="log">
+            <a href="/login"><button class="btn-grad2">Login</button></a>
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>

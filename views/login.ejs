@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Quora</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+
+<body>
+   <div id="main">
+      <div id="container1" style="height: 60vh;">
+         <div id="head">
+            <h1>Quora</h1>
+         </div>
+
+         <h2 id="hd">Login</h2>
+
+         <div id="register" style="height: 30vh;">
+            <form action="/login" method="POST">
+               <input type="text" name="username" placeholder="Enter username" class="input" autocomplete="false" ><br><br>
+               <input type="password" name="password" placeholder="Enter password" class="input" autocomplete="false" ><br><br>
+               <input type="submit" value="LOGIN" class="btn-grad1">
+            </form>
+            <a href="/reset" style="text-decoration: underline;color: blue;text-decoration-color: blue;font-weight: 500;">Forgot Password ? </a>
+         </div>
+
+         <div id="log">
+            
+            <a href="/"><button class="btn-grad2">Register</button></a>
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>
